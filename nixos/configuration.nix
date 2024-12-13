@@ -19,11 +19,20 @@
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
-
   environment.systemPackages = with pkgs; [
     git
   ];
+
+  programs.zsh.enable = true;
+
+  services.kmscon = {
+    enable = true;
+    fonts = [ {
+      name = "Fira Code";
+      package = pkgs.fira-code;
+    } ];
+    extraConfig = "font-size=24";
+  };
 
   system.stateVersion = "24.11";
 }
