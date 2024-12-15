@@ -7,11 +7,22 @@
   home.packages = with pkgs; [
     bat
     ranger
-    tmux
 
     gh
     gnupg
   ];
+
+  programs.tmux = {
+    enable = true;
+    plugins = with pkgs.tmuxPlugins; [ onedark-theme ];
+    extraConfig = ''
+    set -g window-style 'fg=color250,bg=colour234'
+    set -g window-active-style 'fg=color255,bg=colour234'
+
+    set -g pane-border-style 'fg=colour250,bg=colour234'
+    set -g pane-active-border-style 'fg=colour255,bg=colour234'
+    '';
+  };
 
   programs.zsh = {
     enable = true;
@@ -22,7 +33,13 @@
       enable = true;
       theme = "afowler";
     };
-    initExtra = ''if [ "$TMUX" = "" ]; then tmux; fi'';
+    initExtra = ''
+    if [ "$TMUX" = "" ]; then
+      tmux
+    else
+      export TERM=xterm-256color
+    fi
+    '';
   };
 
   programs.neovim = {

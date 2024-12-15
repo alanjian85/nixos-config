@@ -28,10 +28,11 @@
   services.kmscon = {
     enable = true;
     fonts = [ {
-      name = "Fira Code";
-      package = pkgs.fira-code;
+      name = "FiraCode Nerd Font Mono";
+      package = (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; });
     } ];
     extraConfig = "font-size=24";
+    autologinUser = "feedc0de";
   };
 
   system.stateVersion = "24.11";
