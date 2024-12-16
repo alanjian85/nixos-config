@@ -8,6 +8,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  hardware.graphics.enable = true;
+
   networking.hostName = "enigma";
   networking.wireless.enable = true;
 
@@ -15,7 +17,7 @@
 
   users.users.feedc0de = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "video" ];
     shell = pkgs.zsh;
   };
 
