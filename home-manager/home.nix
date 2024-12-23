@@ -9,6 +9,7 @@
     ranger
 
     gh
+    git-lfs
     gnupg
   ];
 
