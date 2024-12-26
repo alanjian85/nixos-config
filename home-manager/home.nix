@@ -11,16 +11,18 @@
     gh
     git-lfs
     gnupg
+
+    nixfmt
   ];
 
   programs.tmux = {
     enable = true;
     plugins = with pkgs.tmuxPlugins; [ onedark-theme ];
     extraConfig = ''
-      set -g window-style 'fg=color250,bg=colour234'
+      set -g window-style 'fg=color255,bg=colour234'
       set -g window-active-style 'fg=color255,bg=colour234'
 
-      set -g pane-border-style 'fg=colour250,bg=colour234'
+      set -g pane-border-style 'fg=colour255,bg=colour234'
       set -g pane-active-border-style 'fg=colour255,bg=colour234'
     '';
   };
