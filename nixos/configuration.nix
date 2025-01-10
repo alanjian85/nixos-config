@@ -1,9 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [ ./hardware-configuration.nix ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -17,7 +25,10 @@
 
   users.users.feedc0de = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [
+      "wheel"
+      "video"
+    ];
     shell = pkgs.zsh;
   };
 
@@ -29,10 +40,12 @@
 
   services.kmscon = {
     enable = true;
-    fonts = [ {
-      name = "FiraCode Nerd Font Mono";
-      package = (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; });
-    } ];
+    fonts = [
+      {
+        name = "FiraCode Nerd Font Mono";
+        package = (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; });
+      }
+    ];
     extraConfig = "font-size=24";
     autologinUser = "feedc0de";
   };

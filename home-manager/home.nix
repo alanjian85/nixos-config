@@ -8,11 +8,14 @@
     bat
     ranger
 
+    cargo
+    gcc
+    nixfmt-rfc-style
+
     gh
     git-lfs
     gnupg
-
-    nixfmt
+    wget
   ];
 
   programs.tmux = {
