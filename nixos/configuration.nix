@@ -24,7 +24,10 @@
 
   users.users.feedc0de = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
