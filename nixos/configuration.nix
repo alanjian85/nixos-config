@@ -1,0 +1,35 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  networking.hostName = "enigma";
+  networking.networkmanager.enable = true;
+
+  time.timeZone = "Asia/Taipei";
+
+  users.users.feedc0de = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    git
+  ];
+
+  system.stateVersion = "24.11";
+}
