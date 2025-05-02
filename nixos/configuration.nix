@@ -24,6 +24,9 @@
 
   time.timeZone = "Asia/Taipei";
 
+  users.defaultUserShell = pkgs.zsh;
+  programs.zsh.enable = true;
+
   users.users.feedc0de = {
     isNormalUser = true;
     extraGroups = [
