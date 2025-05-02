@@ -6,6 +6,7 @@
   home.packages = with pkgs; [
     fira-code
     firefox
+    gh
     gnupg
     helix
   ];
@@ -34,6 +35,24 @@
     enable = true;
     settings = {
       confirm_os_window_close = 0;
+    };
+  };
+
+  programs.git = {
+    enable = true;
+    userName = "alanjian85";
+    userEmail = "alanjian85@outlook.com";
+    signing = {
+      signByDefault = true;
+      key = "D9C2EF4B24B630C2";
+    };
+    extraConfig = {
+      core = {
+        editor = "hx";
+      };
+      credential = {
+        helper = "!/etc/profiles/per-user/feedc0de/bin/gh auth git-credential";
+      };
     };
   };
 
