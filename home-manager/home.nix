@@ -4,11 +4,19 @@
   home.homeDirectory = "/home/feedc0de";
 
   home.packages = with pkgs; [
+    bat
+    cargo
+    clippy
     fira-code
     firefox
+    gcc
     gh
     gnupg
-    helix
+    nixfmt-rfc-style
+    ranger
+    rust-analyzer
+    rustfmt
+    tree
   ];
 
   programs.zsh = {
@@ -33,12 +41,13 @@
     package = pkgs.swayfx;
     checkConfig = false;
     config = {
+      modifier = "Mod4";
+      defaultWorkspace = "workspace number 1";
+      terminal = "kitty";
       window.border = 0;
       window.titlebar = false;
       gaps.inner = 10;
       gaps.outer = 0;
-      modifier = "Mod4";
-      terminal = "kitty";
     };
   };
 
@@ -47,6 +56,11 @@
     settings = {
       confirm_os_window_close = 0;
     };
+  };
+
+  programs.helix = {
+    enable = true;
+    defaultEditor = true;
   };
 
   programs.git = {
