@@ -49,12 +49,18 @@
       gaps.inner = 10;
       gaps.outer = 0;
     };
+    extraConfig = "
+      blur enable
+      blur_passes 0
+      corner_radius 12
+    ";
   };
 
   programs.kitty = {
     enable = true;
     settings = {
       confirm_os_window_close = 0;
+      background_opacity = 0.5;
     };
   };
 
